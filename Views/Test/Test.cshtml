@@ -1,0 +1,64 @@
+﻿@model List<Activity2Part1.Models.UserModel>
+
+@{
+    ViewBag.Title = "My App";
+    Layout = "~/Views/Shared/_MyDefaultLayout.cshtml";
+}
+
+<!DOCTYPE html>
+
+<html>
+<head>
+
+    <meta name="viewport" content="width=device-width" />
+    <title>Test</title>
+    <style>
+        .labelOne {
+            text-align: center;
+            font-weight: bold;
+            font-family: Arial;
+            font-size: 24px;
+        }
+        .labelTwo{
+            text-align: left;
+            font-weight: bold;
+            font-family: Arial;
+            font-size: 18px;
+        }
+
+        div {text-align: center;}
+
+        table, th, td{
+            border: 1px solid black;
+        }
+    </style>
+</head>
+
+<body>
+    <div>
+        @Html.Label("Welcome to Razor", htmlAttributes: new { @class = "labelOne" })
+    </div>
+    <br>
+    @Html.Label("My customers are:", htmlAttributes: new { @class = "labelTwo" })
+    <table>
+
+        <tr>
+            <th scope="col">Name</th>
+            <th scope="col">Email Address</th>
+            <th scope="col">Phone Number</th>
+        </tr>
+
+        @foreach(var user in Model)
+        {
+        <tr>
+            <td>@Html.DisplayFor(modelItem => user.Name)</td>
+            <td>@Html.DisplayFor(modelItem => user.EmailAddress)</td>
+            <td>@Html.DisplayFor(modelItem => user.PhoneNumber)</td>
+        </tr>
+        }
+
+    </table>
+    <br>
+    @Html.ActionLink("Refresh Page", "Index")
+</body>
+</html>
