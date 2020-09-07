@@ -1,0 +1,53 @@
+﻿@using Activity3Part1.Models
+
+@model Tuple<List<CustomerModel>, CustomerModel>
+
+@{
+    Layout = "~/Views/Shared/_Layout.cshtml";
+    AjaxOptions ajaxOptions = new AjaxOptions
+    {
+        HttpMethod = "POST",
+        InsertionMode = InsertionMode.Replace,
+        UpdateTargetId = "customerInfo",
+        OnSuccess = "ajaxSuccess"
+    };
+}
+
+<script type="text/javascript">
+    function ajaxSuccess()
+    {
+        $.post('@Url.Action("GetMoreInfo", "Customer")', { customer: 2 }, function (data) { alert(data); });
+    }
+</script>
+
+<!DOCTYPE html>
+
+<html>
+<head>
+    <meta name="viewport" content="width=device-width" />
+    <title></title>
+</head>
+<body>
+    <div>
+    </div>
+</body>
+</html>
+
+@Html.Label("Please select a customer")
+
+@using (Ajax.BeginForm("CustomerTest", "Customer", ajaxOptions))
+{
+    @Html.AntiForgeryToken()
+
+    foreach (var CustomerModel in Model.Item1)
+    {
+        @Html.RadioButton("_customer", CustomerModel.ID)
+        @Html.Label(CustomerModel.Name)
+    }
+    <br />
+    <input type="submit" id="Submit" value="Submit Customer" />
+}
+
+<div id="customerInfo">
+    @Html.Partial("~/Views/Shared/_CustomerDetails.cshtml", Model.Item2)
+</div>
