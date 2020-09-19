@@ -1,0 +1,12 @@
+2020-09-08 18:27:49.7048 INFO Entering LoginController.Login()
+2020-09-08 18:27:49.7971 INFO Parameters are: {"Username":"test","Password":"test"}
+2020-09-08 18:27:49.7971 INFO Exit LoginController.Login() with login passing
+2020-09-08 18:31:45.8927 INFO Entering LoginController.Login()
+2020-09-08 18:31:45.8927 INFO Parameters are: {"Username":"test","Password":"asdf"}
+2020-09-08 18:31:45.8927 INFO Exit LoginController.Login() with login failing
+2020-09-08 19:16:14.6431 INFO Entering LoginController.Login()
+2020-09-08 19:16:15.5801 INFO Parameters are: {"Username":"test","Password":"test"}
+2020-09-08 19:16:15.5801 INFO Exit LoginController.Login() with login passing
+2020-09-08 19:16:49.2911 INFO Entering LoginController.Login()
+2020-09-08 19:16:49.2956 INFO Parameters are: {"Username":"test","Password":"asdfasdf"}
+2020-09-08 19:16:49.2956 INFO Exit LoginController.Login() with login failing

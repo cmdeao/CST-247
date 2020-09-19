@@ -1,0 +1,4 @@
+2020-09-15 13:06:55.6488 INFO Testing first return
+2020-09-15 13:27:30.0551 INFO TestLoggingService2 controller test response
+2020-09-15 13:37:20.7176 INFO TestLoggingService3Controller test logger response.
+2020-09-15 13:37:20.7335 INFO Test Logging in TestService.TestLogger() invoked.
