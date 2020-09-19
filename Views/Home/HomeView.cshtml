@@ -1,0 +1,37 @@
+﻿
+@{
+    ViewBag.Title = "HomeView";
+}
+
+<style>
+    form {
+        margin: 0 auto;
+        width: 250px;
+        align-content: center;
+        text-align:center;
+    }
+    h2
+    {
+        text-align:center;
+    }
+</style>
+<h2>Welcome!</h2>
+
+
+@using (Html.BeginForm("GetPageChoice", "Home", FormMethod.Post))
+{
+    @Html.AntiForgeryToken()
+
+    <div class="form-horizontal">
+        <h4>Please select an option:</h4>
+            <div>
+                @Html.RadioButton("Selection", "Insertion", new { @checked = true })
+                @Html.Label("Insert Verse")
+            </div>
+            <div>
+                @Html.RadioButton("Selection", "Search")
+                @Html.Label("Search Verse")
+            </div>
+        <input type="submit" value="Select" class="btn btn-default"/>
+    </div>
+}

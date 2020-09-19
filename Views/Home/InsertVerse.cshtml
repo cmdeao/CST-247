@@ -1,0 +1,72 @@
+﻿@model Benchmark___Bible_Verse.Models.BibleVerse
+
+@{
+    ViewBag.Title = "VerseInsert";
+}
+
+<style>
+    form{
+        margin: 0 auto;
+        width: 250px;
+        align-content: center;
+        text-align: center;
+    }
+    h6{
+        text-align: center;
+        font-size: 24px;
+    }
+</style>
+
+<!DOCTYPE html>
+<head>
+    <meta name="viewport" content="width=device-width" />
+    <title>Verse Input</title>
+</head>
+<br />
+<br />
+@using (Html.BeginForm("InsertVerse", "Home", FormMethod.Post))
+{
+    @Html.AntiForgeryToken()
+    @Html.ValidationSummary(true, "", new { @class = "text-danger" })
+<div class="form-horizontal">
+
+
+    <div class="form-group">
+        <div>
+            @Html.Label("Testament")
+            <br/>
+            @Html.EnumDropDownListFor(model => model.Testament)
+            @Html.ValidationMessageFor(model => model.Testament, "", new { @class = "text-danger" })
+        </div>
+
+        <div>
+            @Html.Label("Book")
+            @Html.EditorFor(model => model.Book, new { htmlAttributes = new { @class = "form-control" } })
+            @Html.ValidationMessageFor(model => model.Book, "", new { @class = "text-danger" })
+        </div>
+        <div>
+            @Html.Label("Chapter")
+            @Html.EditorFor(model => model.Chapter, new { htmlAttributes = new { @class = "form-control" } })
+            @Html.ValidationMessageFor(model => model.Chapter, "", new { @class = "text-danger" })
+        </div>
+        <div>
+            @Html.Label("Verse Number")
+            @Html.EditorFor(model => model.VerseNum, new { htmlAttributes = new { @class = "form-control" } })
+            @Html.ValidationMessageFor(model => model.VerseNum, "", new { @class = "text-danger" })
+        </div>
+
+        <div>
+            @Html.Label("Verse Text")
+            @Html.EditorFor(model => model.VerseText, new { htmlAttributes = new { @class = "form-control" } })
+            @Html.ValidationMessageFor(model => model.VerseText, "", new { @class = "text-danger" })
+        </div>
+        <br/>
+        <input type="submit" value="Create" class="btn btn-default"/>
+    </div>
+    
+</div>
+    
+}
+<h6>
+    @Html.ActionLink("Home", "Index", "Home", null, null)
+</h6>

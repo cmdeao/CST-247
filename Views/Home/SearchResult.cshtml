@@ -1,0 +1,50 @@
+﻿@model Benchmark___Bible_Verse.Models.BibleVerse
+@{
+    ViewBag.Title = "SearchResult";
+}
+
+<!DOCTYPE html>
+
+<style>
+    table, th, td{
+        text-align:center;
+        border: 1px solid black;
+        margin:0 auto;
+        width: 400px;
+    }
+    div{
+        text-align:center;
+        font-size:24px;
+    }
+</style>
+<head>
+    <meta name="viewport" content="width=device-width" />
+    <title>SearchResult</title>
+</head>
+<div>
+    @Html.Label("Results:")
+</div>
+<br/>
+<table style="width:50%; background-color: white">
+    <tr>
+        <th scope="col">Testament</th>
+        <th scope="col">Book</th>
+        <th scope="col">Chapter</th>
+        <th scope="col">Verse</th>
+        <th scope="col">Text</th>
+    </tr>
+
+    <tr>
+        <td>@Html.DisplayFor(item => Model.Testament)</td>
+        <td>@Html.DisplayFor(item => Model.Book)</td>
+        <td>@Html.DisplayFor(item => Model.Chapter)</td>
+        <td>@Html.DisplayFor(item => Model.VerseNum)</td>
+        <td>@Html.DisplayFor(item => Model.VerseText)</td>
+    </tr>
+    
+</table>
+<div>
+    @Html.ActionLink("Search New Verse", "SearchVersePage", "Home", null, null)
+    <br/>
+    @Html.ActionLink("Home", "Index", "Home", null, null)
+</div>
